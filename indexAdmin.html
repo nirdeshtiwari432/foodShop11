@@ -1,0 +1,32 @@
+<!-- indexadmin.php -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+        <a href="index.html">Logout</a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="order.php">Orders</a></li>
+            <li><a href="index.php?page=customers">Customers</a></li>
+            <li><a href="index.php?page=menus">Menus</a></li>
+            <li><a href="index.php?page=delivery_personnel">Delivery Personnel</a></li>
+            <!-- Add more options as needed -->
+        </ul>
+    </nav>
+    <main>
+        
+    </main>
+    <footer>
+      
+    </footer>
+</body>
+</html>

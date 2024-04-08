@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+    // Function to get count, price, and image URL parameters from URL
+    function getDataFromURL() {
+        // Get the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        // Get the count, price, and image URL parameter values
+        const count = urlParams.get('count');
+        const product = urlParams.get('product');
+        const price = urlParams.get('price');
+        const imageUrl = urlParams.get('imageUrl');
+        
+        console.log("Count:", count);
+        console.log("Price:", price);
+        console.log("Image URL:", imageUrl);
+        console.log("product:", product);
+        
+        // Display the count, price, and image on the page
+        document.getElementById("displayproduct").innerText = "Product :" + product;
+        document.getElementById("displayCount").innerText = "Quantity :" + count;
+        document.getElementById("displayPrice").innerText = "Price :" + price;
+        document.getElementById("productImage").src = imageUrl;
+        
+        // Calculate and display the total
+        const total = (parseInt(count) * parseInt(price)).toFixed(2); // Ensure total has two decimal places
+        document.getElementById("total").innerText = "Total: " + total;
+    }
+
+    // Call the function when the page loads
+    window.onload = getDataFromURL;
+</script>
+
+    <form action="process_cart.php" method="post">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img id="productImage" src="" alt="Product Image">
+                    <div class="item-details">
+                        <div id = "displayproduct" class="item-name">Product Name 1</div>
+                        <div id="displayCount" class="item-quantity">Quantity: </div>
+                        <div id="displayPrice" class="item-total">$39.98</div>
+                        <div class="order-id">Order ID: #12345</div>
+                    </div>
+                </div>
+            </div>
+            <div id = "total" class="total">Total: $64.97</div>
+
+            <!-- Order form fields -->
+            <label for="customer_name">Customer Name:</label><br>
+            <input type="text" id="customer_name" name="customer_name" required><br>
+
+            <label for="location">Location:</label><br>
+            <input type="text" id="location" name="location" required><br>
+
+            <!-- Hidden fields for product details -->
+            <input type="hidden" id="product_name" name="product_name">
+            <input type="hidden" id="order_id" name="order_id">
+            <input type="hidden" id="amount" name="amount">
+            <input type="hidden" id="payment_type" name="payment_type">
+            <input type="hidden" id="payment_status" name="payment_status">
+            <input type="hidden" id="product_id" name="product_id">
+
+            <input type="submit" value="Proceed to Checkout">
+        </div>
+    </form>
+</body>
+</html>
