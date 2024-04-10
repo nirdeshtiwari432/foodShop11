@@ -10,7 +10,7 @@
         exit();
         
     }else{
-        header("Location:pao.html");
+        header("Location:index.html");
         exit();
 }
 $conn->close();

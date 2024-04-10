@@ -10,12 +10,14 @@
 <body>
    <div id="main">
     <div class="box">
-        <div class="thambnil">
+         <div class="thambnil">
             <img src="https://i.pinimg.com/236x/76/f2/37/76f237a8e512593dd5184a7072d046ea.jpg" alt="">
         </div>
 
+
+
         <div class="deteals">
-            <h1>Crispy Masala Dosa</h1>
+             <h1>Crispy Masala Dosa</h1>
             <div class="star">
                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                 <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
@@ -29,6 +31,7 @@
             </div>
             <div>
                 <h4 id="price">70</h4>
+               
             </div>
           
             <p>Orders are placed exactly as the customer wants them. Restaurants can collect valuable data about their customer's ordering habits.</p>
@@ -60,10 +63,11 @@
         function addToCart() {
             // Get the current count, price, and image URL
             var count = document.getElementById("count").innerText;
+            var product = document.getElementById("product").innerText;
             var price = document.getElementById("price").innerText;
             var imageUrl = document.querySelector('.thambnil img').src;
             // Redirect to cart page with count, price, and image URL as parameters
-            window.location.href = "cart.html?count=" + count + "&price=" + price + "&imageUrl=" + imageUrl;
+            window.location.href = "cart.html?count=" + count + "&price=" + price + "&imageUrl=" + imageUrl  + "&product=" + product;
         }
   </script>
 </body>

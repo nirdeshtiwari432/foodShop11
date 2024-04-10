@@ -47,6 +47,7 @@
     <div id = "code">
     <img class = "qr" src="https://www.pngall.com/wp-content/uploads/2/QR-Code-PNG-HD-Image.png" alt="">
     <p>Scan QR for online payment </p>
+    <p>Or you can pay by cash </p>
    
     </div>
    
@@ -56,19 +57,15 @@
 
 // Retrieve data from the POST request (assuming the data is sent via a form)
 $product_name = $_POST['product_name'];
-$order_id = $_POST['order_id'];
 $amount = $_POST['amount'];
-$payment_type = $_POST['payment_type'];
-$payment_status = $_POST['payment_status'];
-$product_id = $_POST['product_id'];
-$customer_name = $_POST['customer_name'];
+$customar_name = $_POST['customer_name'];
 $location = $_POST['location'];
 
 // Prepare and bind the SQL statement
-$sql = "INSERT INTO `order` (product_name, order_id, amount, payment_type, payment_status, product_id, customer_name, location) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO `order` (product_name, amount, customar_name, location) 
+        VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssss", $product_name, $order_id, $amount, $payment_type, $payment_status, $product_id, $customer_name, $location);
+$stmt->bind_param("ssss", $product_name, $amount, $customar_name, $location);
 
 // Execute the statement
 if ($stmt->execute()) {

@@ -19,6 +19,8 @@ else{
     $stmt->execute();
     $stmt->close();
     $conn->close();
+    echo "<p>Registration success</p>";
+
 
 }
 

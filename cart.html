@@ -32,6 +32,9 @@
         // Calculate and display the total
         const total = (parseInt(count) * parseInt(price)).toFixed(2); // Ensure total has two decimal places
         document.getElementById("total").innerText = "Total: " + total;
+
+        document.getElementById("textproduct_name").value =  product;
+        document.getElementById("amount").value =  total;
     }
 
     // Call the function when the page loads
@@ -55,21 +58,22 @@
             <div id = "total" class="total">Total: $64.97</div>
 
             <!-- Order form fields -->
+        
             <label for="customer_name">Customer Name:</label><br>
             <input type="text" id="customer_name" name="customer_name" required><br>
 
             <label for="location">Location:</label><br>
             <input type="text" id="location" name="location" required><br>
 
-            <!-- Hidden fields for product details -->
-            <input type="hidden" id="product_name" name="product_name">
-            <input type="hidden" id="order_id" name="order_id">
-            <input type="hidden" id="amount" name="amount">
-            <input type="hidden" id="payment_type" name="payment_type">
-            <input type="hidden" id="payment_status" name="payment_status">
-            <input type="hidden" id="product_id" name="product_id">
+            <!-- Visible input fields for product name and amount -->
+            <label for="textproduct_name">Product Name:</label><br>
+            <input type="text" id="textproduct_name" name="product_name" required><br>
+
+            <label for="amount">Amount:</label><br>
+            <input type="text" id="amount" name="amount" required><br>
 
             <input type="submit" value="Proceed to Checkout">
+
         </div>
     </form>
 </body>
